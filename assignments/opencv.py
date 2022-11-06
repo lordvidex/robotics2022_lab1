@@ -33,7 +33,7 @@ for i in range(0, rows):
 fig, ax = plt.subplots(nrows=rows, ncols=columns)
 for i in range(0, rows):
     for j in range(0, columns):
-        img = plt.imread(f"../assets/paradise_{i}_{j}.png")
+        img = plt.imread(f"assets/paradise_{i}_{j}.png")
         ax[i,j].imshow(img)
         ax[i,j].axis('off')
 plt.tight_layout()
