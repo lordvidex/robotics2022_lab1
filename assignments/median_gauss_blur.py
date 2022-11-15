@@ -26,15 +26,16 @@ def bilateral_filter(img, kernel_size, sigma_color, sigma_space):
     return cv2.bilateralFilter(img, kernel_size, sigma_color, sigma_space)
     
 
-# show salted image
-img = cv2.imread('assets/paradise.png')
-noised = add_salt_pepper_noise(img, 0.1)
-cv2.imshow('Original | Noised', np.hstack((img, noised)))
-cv2.imshow('Median | Gaussian | Bilateral',
-    np.concatenate((
-        median_blur(noised, 5),
-        gaussian_blur(noised, 5),
-        bilateral_filter(noised, 9, 75, 75)
-    ), axis=1))
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+if __name__ == '__main__':
+    # show salted image
+    img = cv2.imread('assets/paradise.png')
+    noised = add_salt_pepper_noise(img, 0.1)
+    cv2.imshow('Original | Noised', np.hstack((img, noised)))
+    cv2.imshow('Median | Gaussian | Bilateral',
+        np.concatenate((
+            median_blur(noised, 5),
+            gaussian_blur(noised, 5),
+            bilateral_filter(noised, 9, 75, 75)
+        ), axis=1))
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
