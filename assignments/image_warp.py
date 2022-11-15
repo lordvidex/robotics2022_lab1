@@ -10,6 +10,7 @@ def reset_image():
     counter = 0
     img = cv2.imread('assets/cards.jpeg')
     edges = np.zeros((4,2), np.uint8)
+    
 def mouse_callback(event, x, y, flags, params):
     global counter
     if event == cv2.EVENT_LBUTTONDOWN:
