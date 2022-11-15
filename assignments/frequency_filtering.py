@@ -16,10 +16,10 @@ window_name = 'Original with Noise'
 def mean_filter(img, kernel_size):
     return cv2.blur(img, (kernel_size, kernel_size))
 
-def mag_spectrum(img):
-    dft = cv2.dft(np.float32(img), flags=cv2.DFT_COMPLEX_OUTPUT)
-    dft_shift = np.fft.fftshift(dft)
-    return 20 * np.log(cv2.magnitude(dft_shift[:, :, 0], dft_shift[:, :, 1]))
+def mag_spectrum(img):    
+    f = np.fft.fft2(img)
+    fshift = np.fft.fftshift(f)
+    return 20*np.log(np.abs(fshift))
 
 if __name__ == '__main__':
     while True:
@@ -33,6 +33,7 @@ if __name__ == '__main__':
             noise = min(100, noise + 10)
         elif k == ord('-'):
             noise = max(0, noise - 10)
-        plt.imshow(mag_spectrum(salted), cmap='gray')
+        plt.imshow(mag_spectrum(cv2.imread('assets/paradise.png', 0)), cmap='gray')
+        plt.show()
         cv2.waitKey(1)
     cv2.destroyAllWindows()

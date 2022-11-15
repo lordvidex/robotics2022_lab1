@@ -29,7 +29,7 @@ def bilateral_filter(img, kernel_size, sigma_color, sigma_space):
 if __name__ == '__main__':
     # show salted image
     img = cv2.imread('assets/paradise.png')
-    noised = add_salt_pepper_noise(img, 0.1)
+    noised = add_salt_pepper_noise(img, 0.5)
     cv2.imshow('Original | Noised', np.hstack((img, noised)))
     cv2.imshow('Median | Gaussian | Bilateral',
         np.concatenate((
