@@ -2,6 +2,8 @@ import cv2
 import numpy as np
 import os
 
+# source: https://www.geeksforgeeks.org/python-opencv-cv2-imread-method/
+
 # Define the dimensions of checkerboard
 CHECKERBOARD = (6, 9)
 
