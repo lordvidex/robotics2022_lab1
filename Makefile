@@ -10,3 +10,5 @@
 	python3 assignments/median_gauss_blur.py
 11:
 	python3 assignments/frequency_filtering.py
+12:
+	python3 assignments/calibrate.py
